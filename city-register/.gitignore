@@ -1,11 +1,11 @@
 # Default ignored files
 /shelf/
-/.idea/
+/.idea
 # Datasource local storage ignored files
 /../../../../../../../:\Users\lapin\IdeaProjects\ext-systems\city-register\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-/target/
+/target
 *.iml
-/out/
+/out
