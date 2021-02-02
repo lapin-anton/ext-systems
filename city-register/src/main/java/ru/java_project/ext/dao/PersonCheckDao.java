@@ -22,12 +22,10 @@ public class PersonCheckDao {
             "        AND a.street_code = ? " +
             "        AND UPPER(a.building) = UPPER(?) ";
 
-    public PersonCheckDao() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private ConnectionBuilder connectionBuilder;
+
+    public void setConnectionBuilder(ConnectionBuilder connectionBuilder) {
+        this.connectionBuilder = connectionBuilder;
     }
 
     public PersonResponse checkPerson(PersonRequest personRequest) throws PersonCheckException {
@@ -71,7 +69,6 @@ public class PersonCheckDao {
     }
 
     private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/city_register?useUnicode=true&serverTimezone=UTC",
-                "root", "1111");
+        return connectionBuilder.getConnection();
     }
 }

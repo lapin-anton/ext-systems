@@ -24,6 +24,7 @@ public class PersonCheckDaoTest extends TestCase {
         request.setExtension("2");
         request.setApartment("121");
         PersonCheckDao dao = new PersonCheckDao();
+        dao.setConnectionBuilder(new DirectConnectionBuilder());
         PersonResponse response = dao.checkPerson(request);
         Assert.assertTrue(response.isRegistered());
         Assert.assertFalse(response.isTemporal());
@@ -40,6 +41,7 @@ public class PersonCheckDaoTest extends TestCase {
         request.setStreetCode(1);
         request.setBuilding("10");
         PersonCheckDao dao = new PersonCheckDao();
+        dao.setConnectionBuilder(new DirectConnectionBuilder());
         PersonResponse response = dao.checkPerson(request);
         Assert.assertFalse(response.isRegistered());
         Assert.assertFalse(response.isTemporal());
