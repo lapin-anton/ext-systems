@@ -22,6 +22,13 @@ public class PersonCheckDao {
             "        AND a.street_code = ? " +
             "        AND UPPER(a.building) = UPPER(?) ";
 
+    public PersonCheckDao() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public PersonResponse checkPerson(PersonRequest personRequest) throws PersonCheckException {
         PersonResponse response = new PersonResponse();
