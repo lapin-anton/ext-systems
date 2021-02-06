@@ -15,19 +15,19 @@ public class PersonDaoTest {
         PersonDao dao = new PersonDao();
         List<Person> persons = dao.findPersons();
         persons.forEach(person -> {
-            System.out.println(person.getFirstName());
-            System.out.println(person.getClass().getName());
-            System.out.println(person.getPassports().size());
-            System.out.println(person.getBirthCertificate());
-            if(person instanceof PersonMale) {
-                System.out.println(((PersonMale) person).getMarriageCertificates().size());
-                System.out.println(((PersonMale) person).getBirthCertificates().size());
-
-            }
-            if(person instanceof PersonFemale) {
-                System.out.println(((PersonFemale) person).getMarriageCertificates().size());
-                System.out.println(((PersonFemale) person).getBirthCertificates().size());
-            }
+            System.out.println("Name: " + person.getFirstName());
+            System.out.println("Class for sex:" + person.getClass().getSimpleName());
+            System.out.println("Passports: " + person.getPassports().size());
+            System.out.println("Birth certificate: " + person.getBirthCertificate());
+//            if(person instanceof PersonMale) {
+//                System.out.println(((PersonMale) person).getMarriageCertificates().size());
+//                System.out.println(((PersonMale) person).getBirthCertificates().size());
+//
+//            }
+//            if(person instanceof PersonFemale) {
+//                System.out.println(((PersonFemale) person).getMarriageCertificates().size());
+//                System.out.println(((PersonFemale) person).getBirthCertificates().size());
+//            }
         });
     }
 }

@@ -5,6 +5,20 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "ro_marriage_certificate")
+
+@NamedQueries({
+        @NamedQuery(name = "MarriageCertificate.findCertificate",
+            query = "SELECT mc FROM MarriageCertificate mc INNER JOIN mc.husband h INNER JOIN mc.wife w" +
+                " WHERE h.firstName = :husbandGivenname" +
+                " AND h.lastName = :husbandSurname" +
+                " AND h.patronymic = :husbandPatronymic" +
+                " AND h.dateOfBirth = :husbandDateOfBirth" +
+                " AND w.firstName = :wifeGivenname" +
+                " AND w.lastName = :wifeSurname" +
+                " AND w.patronymic = :wifePatronymic" +
+                " AND w.dateOfBirth = :wifeDateOfBirth")
+})
+
 public class MarriageCertificate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -79,5 +93,18 @@ public class MarriageCertificate {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public String toString() {
+        return "MarriageCertificate{" +
+                "marriageCertificateId=" + marriageCertificateId +
+                ", number='" + number + '\'' +
+                ", issueDate=" + issueDate +
+                ", husband=" + husband +
+                ", wife=" + wife +
+                ", active=" + active +
+                ", endDate=" + endDate +
+                '}';
     }
 }
