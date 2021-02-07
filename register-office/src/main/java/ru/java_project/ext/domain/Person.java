@@ -14,7 +14,7 @@ import java.util.List;
             query = "SELECT p FROM Person p LEFT JOIN FETCH p.passports ps LEFT JOIN FETCH p.birthCertificate bc")
 })
 
-public class Person {
+public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id")
