@@ -16,7 +16,9 @@ import java.time.LocalDate;
                 " AND w.firstName = :wifeGivenname" +
                 " AND w.lastName = :wifeSurname" +
                 " AND w.patronymic = :wifePatronymic" +
-                " AND w.dateOfBirth = :wifeDateOfBirth")
+                " AND w.dateOfBirth = :wifeDateOfBirth"),
+        @NamedQuery(name = "MarriageCertificate.findByNum",
+            query = "SELECT mc FROM MarriageCertificate mc WHERE mc.number = :number")
 })
 
 public class MarriageCertificate {

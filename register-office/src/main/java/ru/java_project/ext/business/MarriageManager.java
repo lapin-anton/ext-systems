@@ -42,7 +42,16 @@ public class MarriageManager {
         MarriageCertificate certificate = getMarriageCertificate();
         marriageDao.saveAndFlush(certificate);
         List<MarriageCertificate> certificates = marriageDao.findAll();
-        certificates.forEach(crt -> System.out.println(crt));
+        certificates.forEach(crt -> logger.info("{}", crt));
+        logger.info("------->>>>>>");
+        List<MarriageCertificate> cert1 = marriageDao.findByNumber("123456");
+        cert1.forEach(c -> logger.info("{}", c));
+        logger.info("------->>>>>>");
+        List<MarriageCertificate> cert2 = marriageDao.findByNum("123456");
+        cert2.forEach(c -> logger.info("{}", c));
+        logger.info("------->>>>>>");
+        List<MarriageCertificate> cert3 = marriageDao.findSomething("123456");
+        cert2.forEach(c -> logger.info("{}", c));
         //TODO: to make realization for response
         return new MarriageResponse();
     }
